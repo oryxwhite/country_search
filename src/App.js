@@ -12,14 +12,26 @@ function App() {
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then(res => res.json())
+      .then(data => data.sort((a, b) => {
+        if (a.name.common.toLowerCase() < b.name.common.toLowerCase())
+            return -1;
+        if (a.name.common.toLowerCase() > b.name.common.toLowerCase())
+            return 1;
+        return 0;
+      }))
       .then(data => setCountries(data))
   }, [])
+
  
   return (
     <div className="main">
-      <input type="text" placeholder="Search.." onChange={event => setSearchTerm(event.target.value)} />
+      <div className="header">
+        <input type="text" placeholder="Search.." onChange={event => setSearchTerm(event.target.value)} />
+      </div>
       <div className="countries">
-        {/* the filter function returns an array of the country objects that match the name of the country from the search bar*/}
+        {/* the filter function returns an array of the country objects that match the name of the country from the search bar
+            the map function returns an array of <Country /> components with the given props from the country objects
+        */}
         
         {countries
         .filter(val => {
@@ -35,6 +47,8 @@ function App() {
             name={country.name.common}
             population={country.population}
             flag={country.flags.png}
+            capital={country.capital}
+            
             />
         })}
       </div>
