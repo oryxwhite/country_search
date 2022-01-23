@@ -1,0 +1,46 @@
+body {
+    /* background-color: pink; */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+input {
+    position: fixed;
+    width: 300px;
+    align-self: center;
+    margin: 2em auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.countries {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin-top: 4em;
+}
+
+.country {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1.25em auto;
+}
+
+.flag {
+    margin-bottom: 1em;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
