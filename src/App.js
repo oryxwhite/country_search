@@ -22,11 +22,44 @@ function App() {
       .then(data => setCountries(data))
   }, [])
 
- 
+  // function sort(event) {
+  //   if (event.target.value == "AZ") {
+  //     setCountries(prevCountries => {
+  //       return prevCountries.sort((a, b) => {
+  //         if (a.name.common.toLowerCase() < b.name.common.toLowerCase())
+  //           return -1;
+  //       if (a.name.common.toLowerCase() > b.name.common.toLowerCase())
+  //           return 1;
+  //       return 0;
+  //       })
+  //   })}
+
+  //   if (event.target.value == 'ZA') {
+  //     setCountries(prevCountries => {
+  //       return prevCountries.sort((a,b) => {
+  //         return a.population - b.population;
+  //       })
+  //     })
+  //   }
+    
+  // }
+  // console.log(countries[0].name.common)
+
+  
+
+
   return (
     <div className="main">
       <div className="header">
         <input type="text" placeholder="Search.." onChange={event => setSearchTerm(event.target.value)} />
+        
+          <select name="membership" id="membership" onClick={console.log(event => console.log(event))}>
+            <option value="AZ">Country A - Z</option>
+            <option value="ZA">Country Z - A</option>
+            <option value="silver">Population Descending</option>
+            <option value="Gold">Population Ascending</option>
+          </select>
+
       </div>
       <div className="countries">
         {/* the filter function returns an array of the country objects that match the name of the country from the search bar
